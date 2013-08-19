@@ -6,15 +6,17 @@ from cStringIO import StringIO
 
 class InputOutputTests(unittest.TestCase):
 
-    def setUp(self):
-        self.held, sys.stdout = sys.stdout, StringIO()
-
     def test_printing(self):
-        io = InputOutput(sys.stdout, sys.stdin)
+        chosen_out = StringIO()
+        chosen_in = StringIO()
+        io = InputOutput(chosen_out, chosen_in)
         io.present("hello world")
-        self.assertEqual(sys.stdout.getvalue(), "hello world\n")
+        output = chosen_out.getvalue()
+        self.assertEqual(output, "hello world\n")
 
     def test_getting_input(self):
-        io = InputOutput(sys.stdout, sys.stdin)
-        with mock.patch('__builtin__.raw_input', return_value = "hello"):
-            assert io.get_input() == "hello"
+        chosen_out = StringIO()
+        chosen_in = StringIO("hello\n")
+        io = InputOutput(chosen_out, chosen_in)
+        given_input = io.get_input()
+        self.assertEqual(given_input, "hello\n")
