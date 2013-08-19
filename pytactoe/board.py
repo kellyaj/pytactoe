@@ -22,3 +22,11 @@ class Board(object):
         rows.append(self.spots[3:6])
         rows.append(self.spots[6:9])
         return rows
+
+    def get_all_columns(self):
+        columns = []
+        columns.append([self.spots[i] for i in 0, 3, 6])
+        columns.append([self.spots[i] for i in 1, 4, 7])
+        columns.append([self.spots[i] for i in 2, 5, 8])
+        return columns
+

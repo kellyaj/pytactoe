@@ -27,3 +27,8 @@ class BoardTests(unittest.TestCase):
         all_rows = self.board.get_all_rows()
         expected_rows = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
         self.assertEqual(expected_rows, all_rows)
+
+    def test_getting_list_of_columns(self):
+        all_columns = self.board.get_all_columns()
+        expected_columns = [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
+        self.assertEqual(expected_columns, all_columns)
