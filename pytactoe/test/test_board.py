@@ -32,3 +32,8 @@ class BoardTests(unittest.TestCase):
         all_columns = self.board.get_all_columns()
         expected_columns = [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
         self.assertEqual(expected_columns, all_columns)
+
+    def test_getting_list_of_diagonals(self):
+        all_diagonals = self.board.get_all_diagonals()
+        expected_diagonals = [[1, 5, 9], [3, 5, 7]]
+        self.assertEqual(expected_diagonals, all_diagonals)

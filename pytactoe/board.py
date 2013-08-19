@@ -30,3 +30,9 @@ class Board(object):
         columns.append([self.spots[i] for i in 2, 5, 8])
         return columns
 
+    def get_all_diagonals(self):
+        diagonals = []
+        diagonals.append([self.spots[i] for i in 0, 4, 8])
+        diagonals.append([self.spots[i] for i in 2, 4, 6])
+        return diagonals
+
