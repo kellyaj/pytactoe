@@ -1,6 +1,4 @@
 import unittest
-import sys
-import mock
 from pytactoe.io import InputOutput
 from cStringIO import StringIO
 
