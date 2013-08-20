@@ -10,6 +10,7 @@ class InputOutputTests(unittest.TestCase):
         io = InputOutput(chosen_out, chosen_in)
         io.present("hello world")
         output = chosen_out.getvalue()
+
         self.assertEqual(output, "hello world\n")
 
     def test_getting_input(self):
@@ -17,4 +18,5 @@ class InputOutputTests(unittest.TestCase):
         chosen_in = StringIO("hello\n")
         io = InputOutput(chosen_out, chosen_in)
         given_input = io.get_input()
+
         self.assertEqual(given_input, "hello\n")

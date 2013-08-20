@@ -19,6 +19,7 @@ class BoardPrinterTests(unittest.TestCase):
                          "    -------------------\n"
                          "     7   |   8   |   9\n")
         printed = self.chosen_out.getvalue()
+
         self.assertEqual(printed_board, printed)
 
     def test_printing_marked_board(self):
@@ -30,4 +31,5 @@ class BoardPrinterTests(unittest.TestCase):
                          "    -------------------\n"
                          "     7   |   8   |   9\n")
         printed = self.chosen_out.getvalue()
+
         self.assertEqual(printed_board, printed)
