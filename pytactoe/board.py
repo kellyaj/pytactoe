@@ -1,10 +1,7 @@
 class Board(object):
 
     def __init__(self, spots=None):
-      if spots == None:
-          self.spots = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-      else:
-          self.spots = spots
+        self.spots = spots or [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
     def place_move(self, mark, spot):
         self.spots[spot - 1] = mark
