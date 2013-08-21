@@ -20,3 +20,6 @@ class Presenter(object):
 
     def stalemate_message(self):
         self.io.present("The game ended in a stalemate")
+
+    def computer_move_message(self):
+        self.io.present("Computer is thinking...")

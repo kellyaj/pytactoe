@@ -49,3 +49,10 @@ class PresenterTests(unittest.TestCase):
         received_output = self.chosen_output.getvalue()
 
         self.assertEqual(received_output, expected_stalemate_message)
+
+    def test_presenting_stalemate_message(self):
+        expected_computer_move_message = "Computer is thinking...\n"
+        self.presenter.computer_move_message()
+        received_output = self.chosen_output.getvalue()
+
+        self.assertEqual(received_output, expected_computer_move_message)

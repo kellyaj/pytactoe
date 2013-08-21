@@ -12,7 +12,8 @@ class HumanTests(unittest.TestCase):
   def test_retrieving_a_move_from_human_player(self):
       mockio = MagicMock()
       mockio.get_input = MagicMock(return_value=1)
+      mockio.move_prompt = MagicMock()
       human = Human("X", mockio)
-      chosen_move = human.get_move()
+      chosen_move = human.get_move(mockio, None)
 
       self.assertEqual(1, chosen_move)
