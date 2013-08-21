@@ -37,3 +37,10 @@ class PresenterTests(unittest.TestCase):
         received_output = self.chosen_output.getvalue()
 
         self.assertEqual(received_output, expected_invalid_move_message)
+
+    def test_presenting_stalemate_message(self):
+        expected_stalemate_message = "The game ended in a stalemate\n"
+        self.presenter.stalemate_message()
+        received_output = self.chosen_output.getvalue()
+
+        self.assertEqual(received_output, expected_stalemate_message)

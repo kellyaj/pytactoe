@@ -14,3 +14,6 @@ class Presenter(object):
 
     def invalid_move_message(self):
         self.io.present("Invalid move. Please try again")
+
+    def stalemate_message(self):
+        self.io.present("The game ended in a stalemate")
