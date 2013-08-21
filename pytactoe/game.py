@@ -1,5 +1,5 @@
-from pytactoe.board import Board
-from pytactoe.scorer import Scorer
+from board import Board
+from scorer import Scorer
 
 class Game(object):
 
