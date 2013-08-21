@@ -12,7 +12,7 @@ class GameTests(unittest.TestCase):
 
     def test_game_can_be_initialized_with_particular_board(self):
         spots = ["X", 2, "O", 4, 5, 6, 7, 8, 9]
-        game = Game(None, None, None, spots)
+        game = Game(None, None, spots)
 
         self.assertEqual(spots, game.board.spots)
 
@@ -26,7 +26,7 @@ class GameTests(unittest.TestCase):
     def test_game_switches_players(self):
         player1 = MagicMock()
         player2 = MagicMock()
-        game = Game(None, player1, player2)
+        game = Game(player1, player2)
 
         self.assertEqual(player1, game.current_player)
         game.switch_players()
@@ -35,14 +35,14 @@ class GameTests(unittest.TestCase):
     def test_retrieving_player_moves(self):
         player1 = MagicMock()
         player1.get_move = MagicMock(return_value=1)
-        game = Game(None, player1)
+        game = Game(player1)
         chosen_move = game.get_player_move()
 
         self.assertEqual(1, chosen_move)
 
     def test_validating_player_move(self):
         spots = ["X", 2, "O", 4, 5, 6, 7, 8, 9]
-        game = Game(None, None, None, spots)
+        game = Game(None, None, spots)
         taken_spot = 1
         invalid_move = "banana"
         valid_move = 2
@@ -54,7 +54,7 @@ class GameTests(unittest.TestCase):
     def test_placing_player_move(self):
         player1 = MagicMock()
         player1.mark = "X"
-        game = Game(None, player1)
+        game = Game(player1)
         chosen_move = game.board.spots[0]
         game.place_move(chosen_move)
 
