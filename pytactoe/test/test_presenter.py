@@ -22,6 +22,11 @@ class PresenterTests(unittest.TestCase):
         self.presenter.move_prompt("X")
         received_output = self.chosen_output.getvalue()
 
+    def test_presenting_the_player_type_prompt(self):
+        expected_prompt = "The first player is a... type 'human' or 'computer'\n"
+        self.presenter.player_type_prompt("first")
+        received_output = self.chosen_output.getvalue()
+
         self.assertEqual(received_output, expected_prompt)
 
     def test_presenting_the_winner_message(self):
