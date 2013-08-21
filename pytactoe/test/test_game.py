@@ -50,3 +50,12 @@ class GameTests(unittest.TestCase):
         self.assertFalse(game.is_move_valid(taken_spot))
         self.assertFalse(game.is_move_valid(invalid_move))
         self.assertTrue(game.is_move_valid(valid_move))
+
+    def test_placing_player_move(self):
+        player1 = MagicMock()
+        player1.mark = "X"
+        game = Game(None, player1)
+        chosen_move = game.board.spots[0]
+        game.place_move(chosen_move)
+
+        self.assertEqual(player1.mark, game.board.spots[0])
