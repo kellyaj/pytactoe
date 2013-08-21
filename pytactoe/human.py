@@ -6,5 +6,5 @@ class Human(Player):
         super(Human, self).__init__(mark)
         self.io = io
 
-    def get_move(self):
+    def get_move(self, *args):
         return self.io.get_input()
