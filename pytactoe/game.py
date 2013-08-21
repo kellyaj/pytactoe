@@ -3,7 +3,8 @@ from pytactoe.scorer import Scorer
 
 class Game(object):
 
-    def __init__(self, player1=None, player2=None, spots=None):
+    def __init__(self, presenter, player1=None, player2=None, spots=None):
+        self.presenter = presenter
         self.board = Board(spots)
         self.player1 = player1
         self.player2 = player2
@@ -28,4 +29,8 @@ class Game(object):
         self.board.place_move(self.current_player.mark, move)
 
     def is_over(self):
+        if Scorer.is_game_stalemate(self.board.spots):
+            self.presenter.stalemate_message()
+        elif Scorer.is_game_won(self.board.get_all_rows()):
+            self.presenter.winner_message(self.current_player.mark)
         return Scorer.is_game_over(self.board.spots, self.board.get_all_rows())
