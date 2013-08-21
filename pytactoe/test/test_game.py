@@ -92,4 +92,3 @@ class GameTests(unittest.TestCase):
         game.board.spots = won_board
         game.is_over()
         mock_presenter.winner_message.assert_called_with("X")
-
