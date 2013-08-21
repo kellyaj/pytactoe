@@ -11,13 +11,11 @@ class ScorerTests(unittest.TestCase):
         self.assertTrue(Scorer.row_won(winning_row))
 
     def test_evaluating_a_board_as_won(self):
-        not_win_row = [1, 2, 3]
-        win_row = ["X", "X", "X"]
+        not_winning_board = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+        winning_board = [["X", "X", "X"], ["O", "O", 6], [7, 8, 9]]
 
-        self.assertFalse(Scorer.is_game_won(not_win_row, not_win_row, not_win_row))
-        self.assertTrue(Scorer.is_game_won(win_row, not_win_row, not_win_row))
-        self.assertTrue(Scorer.is_game_won(not_win_row, win_row, not_win_row))
-        self.assertTrue(Scorer.is_game_won(not_win_row, not_win_row, win_row))
+        self.assertFalse(Scorer.is_game_won(not_winning_board))
+        self.assertTrue(Scorer.is_game_won(winning_board))
 
     def test_handling_valueerror_for_player_marks(self):
         my_int = 4
@@ -32,3 +30,16 @@ class ScorerTests(unittest.TestCase):
 
         self.assertFalse(Scorer.is_game_stalemate(fresh_board))
         self.assertTrue(Scorer.is_game_stalemate(stalemated_board))
+
+    def test_evaluating_game_over(self):
+        fresh_board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        fresh_rows = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+        stalemated_board =["X", "X", "O", "O", "O", "X", "X", "X", "O"]
+        stalemated_rows = [["X", "X", "O"], ["O", "O", "X"], ["X", "X", "O"]]
+        won_board = ["X", "X", "X", "O", "O", 6, 7, 8, 9]
+        won_board_rows = [["X", "X", "X"], ["O", "O", 6,], [7, 8, 9]]
+
+        self.assertFalse(Scorer.is_game_over(fresh_board, fresh_rows))
+        self.assertTrue(Scorer.is_game_over(stalemated_board, stalemated_rows))
+        self.assertTrue(Scorer.is_game_over(won_board, won_board_rows))
+
