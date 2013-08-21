@@ -31,3 +31,22 @@ class GameTests(unittest.TestCase):
         self.assertEqual(player1, game.current_player)
         game.switch_players()
         self.assertEqual(player2, game.current_player)
+
+    def test_retrieving_player_moves(self):
+        player1 = MagicMock()
+        player1.get_move = MagicMock(return_value=1)
+        game = Game(None, player1)
+        chosen_move = game.get_player_move()
+
+        self.assertEqual(1, chosen_move)
+
+    def test_validating_player_move(self):
+        spots = ["X", 2, "O", 4, 5, 6, 7, 8, 9]
+        game = Game(None, None, None, spots)
+        taken_spot = 1
+        invalid_move = "banana"
+        valid_move = 2
+
+        self.assertFalse(game.is_move_valid(taken_spot))
+        self.assertFalse(game.is_move_valid(invalid_move))
+        self.assertTrue(game.is_move_valid(valid_move))
