@@ -1,4 +1,5 @@
 from pytactoe.board import Board
+from pytactoe.scorer import Scorer
 
 class Game(object):
 
@@ -25,3 +26,6 @@ class Game(object):
 
     def place_move(self, move):
         self.board.place_move(self.current_player.mark, move)
+
+    def is_over(self):
+        return Scorer.is_game_over(self.board.spots, self.board.get_all_rows())

@@ -59,3 +59,16 @@ class GameTests(unittest.TestCase):
         game.place_move(chosen_move)
 
         self.assertEqual(player1.mark, game.board.spots[0])
+
+    def test_game_is_over(self):
+        game = Game()
+        self.assertFalse(game.is_over())
+
+        stalemated_board =["X", "X", "O", "O", "O", "X", "X", "X", "O"]
+        game.board.spots = stalemated_board
+        self.assertTrue(game.is_over())
+
+        won_board = ["X", "X", "X", "O", "O", 6, 7, 8, 9]
+        game.board.spots = won_board
+        self.assertTrue(game.is_over())
+
