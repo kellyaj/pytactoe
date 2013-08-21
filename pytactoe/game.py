@@ -30,8 +30,8 @@ class Game(object):
         self.board.place_move(self.current_player.mark, move)
 
     def is_over(self):
-        if Scorer.is_game_stalemate(self.board):
-            self.presenter.stalemate_message()
-        elif Scorer.is_game_won(self.board):
+        if Scorer.is_game_won(self.board):
             self.presenter.winner_message(self.current_player.mark)
+        elif Scorer.is_game_stalemate(self.board):
+            self.presenter.stalemate_message()
         return Scorer.is_game_over(self.board)
