@@ -21,11 +21,11 @@ class BoardTests(unittest.TestCase):
 
         self.assertEqual("X", self.board.spots[0])
 
-    def test_check_if_spot_is_taken(self):
+    def test_check_if_spot_is_available(self):
         self.board.place_move("O", 5)
 
-        self.assertFalse(self.board.is_spot_taken(1))
-        self.assertTrue(self.board.is_spot_taken(5))
+        self.assertTrue(self.board.is_spot_available(1))
+        self.assertFalse(self.board.is_spot_available(5))
 
     def test_available_spots_list(self):
         self.assertEqual(self.default_spots, self.board.available_spots())

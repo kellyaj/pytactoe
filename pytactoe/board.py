@@ -9,6 +9,9 @@ class Board(object):
     def is_spot_taken(self, spot):
         return isinstance(self.spots[spot - 1], str)
 
+    def is_spot_available(self, spot):
+        return spot in self.available_spots()
+
     def available_spots(self):
         available_spots = []
         for idx, val in enumerate(self.spots):
