@@ -3,11 +3,18 @@ from pytactoe.board import Board
 
 class BoardTests(unittest.TestCase):
 
+    def test_board_can_have_spots_injected(self):
+        spots_to_inject = ["X", 2, "O", 4, 5, 6, 7, 8, 9]
+        board = Board(spots_to_inject)
+
+        self.assertEqual(spots_to_inject, board.spots)
+
     def setUp(self):
+        self.default_spots = [1, 2, 3, 4, 5, 6, 7, 8, 9]
         self.board = Board()
 
     def test_board_initializes_with_spots(self):
-        self.assertEqual([1, 2, 3, 4, 5, 6, 7, 8, 9], self.board.spots)
+        self.assertEqual(self.default_spots, self.board.spots)
 
     def test_placing_moves_on_board(self):
         self.board.place_move("X",1)
@@ -21,7 +28,7 @@ class BoardTests(unittest.TestCase):
         self.assertTrue(self.board.is_spot_taken(5))
 
     def test_available_spots_list(self):
-        self.assertEqual([1, 2, 3, 4, 5, 6, 7, 8, 9], self.board.available_spots())
+        self.assertEqual(self.default_spots, self.board.available_spots())
         self.board.place_move("X", 5)
 
         self.assertEqual([1, 2, 3, 4, 6, 7, 8, 9], self.board.available_spots())
