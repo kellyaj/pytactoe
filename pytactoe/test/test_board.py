@@ -26,20 +26,8 @@ class BoardTests(unittest.TestCase):
 
         self.assertEqual([1, 2, 3, 4, 6, 7, 8, 9], self.board.available_spots())
 
-    def test_getting_list_of_rows(self):
+    def test_getting_all_rows_columns_and_diagonals(self):
         all_rows = self.board.get_all_rows()
-        expected_rows = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+        expected_rows = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]]
 
         self.assertEqual(expected_rows, all_rows)
-
-    def test_getting_list_of_columns(self):
-        all_columns = self.board.get_all_columns()
-        expected_columns = [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
-
-        self.assertEqual(expected_columns, all_columns)
-
-    def test_getting_list_of_diagonals(self):
-        all_diagonals = self.board.get_all_diagonals()
-        expected_diagonals = [[1, 5, 9], [3, 5, 7]]
-
-        self.assertEqual(expected_diagonals, all_diagonals)
