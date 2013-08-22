@@ -31,6 +31,7 @@ class Computer(Player):
         depth = depth
         if Scorer.is_game_over(board):
             return [self.score_move(board, current_player, depth), None]
+        depth += 1
         for spot in board.available_spots():
             board.place_move(current_player, spot)
             spot_score = -(self.minimax(board, self.switch_players(current_player), depth)[0])

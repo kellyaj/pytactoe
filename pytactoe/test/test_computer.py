@@ -28,10 +28,10 @@ class ComputerTests(unittest.TestCase):
         self.assertEqual(1, chosen_move)
 
     def test_computer_chooses_winning_row_move(self):
-        self.board.spots = ["X", "X", 3, 4, 5, 6, 7, "O", "O"]
+        self.board.spots = ["X", "X", 3, 4, "X", 6, 7, "O", "O"]
         chosen_move = self.computer.get_move(self.mock_presenter, self.board)
 
-        self.assertEqual(3, chosen_move)
+        self.assertEqual(7, chosen_move)
 
     def test_computer_chooses_winning_column_move(self):
         self.board.spots = ["X", 2, "O", "X", "O", 6, 7, 8, 9]
@@ -44,3 +44,15 @@ class ComputerTests(unittest.TestCase):
         chosen_move = self.computer.get_move(self.mock_presenter, self.board)
 
         self.assertEqual(1, chosen_move)
+
+    def test_computer_takes_win_over_block(self):
+        self.board.spots = ["X", "X", 3, 4, "X", 6, "O", "O", 9]
+        chosen_move = self.computer.get_move(self.mock_presenter, self.board)
+
+        self.assertEqual(9, chosen_move)
+
+    def test_computer_takes_win_over_fork(self):
+        self.board.spots = ["X", 2, "X", "O", "O", 6, "X", 8, 9]
+        chosen_move = self.computer.get_move(self.mock_presenter, self.board)
+
+        self.assertEqual(6, chosen_move)
