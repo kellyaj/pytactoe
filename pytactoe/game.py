@@ -16,7 +16,7 @@ class Game(object):
         self.current_player = self.players[0]
 
     def get_player_move(self):
-        selected_move = int(self.current_player.get_move(self.presenter, self.board.available_spots()))
+        selected_move = int(self.current_player.get_move(self.presenter, self.board))
         if self.is_move_valid(selected_move):
             return selected_move
         else:
