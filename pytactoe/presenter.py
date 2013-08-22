@@ -9,6 +9,9 @@ class Presenter(object):
     def move_prompt(self, mark):
         self.io.present("%s, please select a move:" % mark)
 
+    def play_again_prompt(self):
+        self.io.present("Would you like to play again? type 'yes' or 'no'")
+
     def player_type_prompt(self, player_turn):
         self.io.present("The %s player is a... type 'human' or 'computer'" % player_turn)
 
@@ -23,3 +26,4 @@ class Presenter(object):
 
     def computer_move_message(self):
         self.io.present("Computer is thinking...")
+

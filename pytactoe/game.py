@@ -15,19 +15,28 @@ class Game(object):
         self.players.reverse()
         self.current_player = self.players[0]
 
+    def sanitize_user_input(self, user_input):
+        try:
+            sanitized_input = int(user_input)
+        except TypeError:
+            sanitized_input = 0
+        except ValueError:
+            sanitized_input = 0
+        return sanitized_input
+
     def get_player_move(self):
-        selected_move = int(self.current_player.get_move(self.presenter, self.board))
-        if self.is_move_valid(selected_move):
-            return selected_move
-        else:
+        while 1:
+            selected_move = self.current_player.get_move(self.presenter, self.board)
+            sanitized_input = self.sanitize_user_input(selected_move)
+            if self.is_move_valid(sanitized_input):
+                return sanitized_input
             self.presenter.invalid_move_message()
-            self.get_player_move()
 
     def is_move_valid(self, move):
         return isinstance(move, int) and self.board.is_spot_available(move)
 
-    def place_move(self, move):
-        self.board.place_move(self.current_player.mark, move)
+    def place_move(self, chosen_move):
+        self.board.place_move(self.current_player.mark, chosen_move)
 
     def is_over(self):
         if Scorer.is_game_won(self.board):

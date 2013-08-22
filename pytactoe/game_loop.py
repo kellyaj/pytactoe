@@ -23,6 +23,8 @@ class GameLoop(object):
                 BoardPrinter.print_board(self.io, game.board.spots)
                 break
             game.switch_players()
+        if self.play_again():
+            self.run(self.create_game)
 
     def start_game(self):
         self.run(self.game)
@@ -45,3 +47,8 @@ class GameLoop(object):
             self.player2 = Human("O", self.io)
         else:
             self.player2 = Computer("O")
+
+    def play_again(self):
+        self.presenter.play_again_prompt()
+        user_response = self.io.get_input()
+        return user_response.rstrip().lower() == "yes"

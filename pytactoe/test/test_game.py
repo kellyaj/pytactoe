@@ -92,3 +92,13 @@ class GameTests(unittest.TestCase):
         game.board.spots = won_board
         game.is_over()
         mock_presenter.winner_message.assert_called_with("X")
+
+    def test_sanitizing_user_input(self):
+        game = Game(None)
+        none_response = None
+        empty_string_response = ''
+        proper_response = '4'
+
+        self.assertEqual(0, game.sanitize_user_input(none_response))
+        self.assertEqual(0, game.sanitize_user_input(empty_string_response))
+        self.assertEqual(4, game.sanitize_user_input(proper_response))
