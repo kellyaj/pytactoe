@@ -24,7 +24,8 @@ class GameLoop(object):
                 break
             game.switch_players()
         if self.play_again():
-            self.run(self.create_game)
+            self.create_game(self.player1, self.player2)
+            self.start_game()
 
     def start_game(self):
         self.run(self.game)
