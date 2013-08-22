@@ -15,6 +15,9 @@ class Presenter(object):
     def player_type_prompt(self, player_turn):
         self.io.present("The %s player is a... type 'human' or 'computer'" % player_turn)
 
+    def available_moves_message(self, available_moves):
+        self.io.present("Available moves: %s" % available_moves)
+
     def winner_message(self, mark):
         self.io.present("%s has won the game!" % mark)
 

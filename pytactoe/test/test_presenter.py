@@ -63,3 +63,10 @@ class PresenterTests(unittest.TestCase):
         received_output = self.chosen_output.getvalue()
 
         self.assertEqual(received_output, expected_computer_move_message)
+
+    def test_presenting_available_moves(self):
+        expected_available_moves_message = "Available moves: [1, 2, 3]\n"
+        self.presenter.available_moves_message([1, 2, 3])
+        received_output = self.chosen_output.getvalue()
+
+        self.assertEqual(received_output, expected_available_moves_message)
