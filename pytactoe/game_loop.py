@@ -9,7 +9,7 @@ from computer import Computer
 class GameLoop(object):
 
     def __init__(self, io):
-        self.io = io or InputOutput(sys.stdout, sys.stdin)
+        self.io = io or InputOutput(sys.stdin, sys.stdout)
         self.presenter = Presenter(io)
         self.create_players(self.choose_player_type("first"), self.choose_player_type("second"))
         self.create_game(self.player1, self.player2)

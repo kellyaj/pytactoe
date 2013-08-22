@@ -7,7 +7,7 @@ class PresenterTests(unittest.TestCase):
 
     def setUp(self):
         self.chosen_output = StringIO()
-        self.io = InputOutput(self.chosen_output, None)
+        self.io = InputOutput(None, self.chosen_output)
         self.presenter = Presenter(self.io)
 
     def test_presenting_the_welcome_message(self):

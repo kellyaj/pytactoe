@@ -19,7 +19,7 @@ class GameLoopTests(unittest.TestCase):
         self.assertEqual(self.player2, game_loop.game.player2)
 
     def test_evaluting_play_again_prompt(self):
-        io = InputOutput(StringIO(), StringIO("c\nc\nyes\n"))
+        io = InputOutput(StringIO("c\nc\nyes\n"), StringIO())
         game_loop = GameLoop(io)
         game_loop.create_game(self.player1, self.player2)
         self.assertTrue(game_loop.play_again())

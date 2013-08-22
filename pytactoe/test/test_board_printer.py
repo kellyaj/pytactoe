@@ -7,7 +7,7 @@ class BoardPrinterTests(unittest.TestCase):
 
     def setUp(self):
         self.chosen_out = StringIO()
-        self.io = InputOutput(self.chosen_out, StringIO)
+        self.io = InputOutput(StringIO, self.chosen_out)
 
     def test_printing_fresh_board(self):
         board = [1, 2, 3, 4, 5, 6, 7, 8, 9]

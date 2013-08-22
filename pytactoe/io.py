@@ -1,8 +1,8 @@
 class InputOutput(object):
 
-    def __init__(self, chosen_output, chosen_input):
-        self.chosen_output = chosen_output
+    def __init__(self, chosen_input, chosen_output):
         self.chosen_input = chosen_input
+        self.chosen_output = chosen_output
 
     def present(self, message):
         self.chosen_output.write(message + "\n")
