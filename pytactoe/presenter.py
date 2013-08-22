@@ -4,10 +4,10 @@ class Presenter(object):
         self.io = io
 
     def welcome_message(self):
-        self.io.present("Welcome to Tic Tac Toe")
+        self.io.present("Welcome to Tic Tac Toe\n")
 
     def move_prompt(self, mark):
-        self.io.present("%s, please select a move:" % mark)
+        self.io.present("%s, please select a move:\n" % mark)
 
     def play_again_prompt(self):
         self.io.present("Would you like to play again? type 'yes' or 'no'")
@@ -16,7 +16,7 @@ class Presenter(object):
         self.io.present("The %s player is a... type 'human' or 'computer'" % player_turn)
 
     def available_moves_message(self, available_moves):
-        self.io.present("Available moves: %s" % available_moves)
+        self.io.present("Available moves: %s\n\n" % available_moves)
 
     def winner_message(self, mark):
         self.io.present("%s has won the game!" % mark)
@@ -28,5 +28,5 @@ class Presenter(object):
         self.io.present("The game ended in a stalemate")
 
     def computer_move_message(self):
-        self.io.present("Computer is thinking...")
+        self.io.present("Computer is thinking...\n")
 

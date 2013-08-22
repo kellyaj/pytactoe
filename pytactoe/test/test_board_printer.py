@@ -16,7 +16,7 @@ class BoardPrinterTests(unittest.TestCase):
                          "    -------------------\n"
                          "     4   |   5   |   6\n"
                          "    -------------------\n"
-                         "     7   |   8   |   9\n")
+                         "     7   |   8   |   9\n\n\n")
         printed = self.chosen_out.getvalue()
 
         self.assertEqual(printed_board, printed)
@@ -28,7 +28,7 @@ class BoardPrinterTests(unittest.TestCase):
                          "    -------------------\n"
                          "     4   |   O   |   6\n"
                          "    -------------------\n"
-                         "     7   |   8   |   9\n")
+                         "     7   |   8   |   9\n\n\n")
         printed = self.chosen_out.getvalue()
 
         self.assertEqual(printed_board, printed)

@@ -11,7 +11,7 @@ class PresenterTests(unittest.TestCase):
         self.presenter = Presenter(self.io)
 
     def test_presenting_the_welcome_message(self):
-        expected_welcome = "Welcome to Tic Tac Toe\n"
+        expected_welcome = "Welcome to Tic Tac Toe\n\n"
         self.presenter.welcome_message()
         received_output = self.chosen_output.getvalue()
 
@@ -58,14 +58,14 @@ class PresenterTests(unittest.TestCase):
         self.assertEqual(received_output, expected_stalemate_message)
 
     def test_presenting_stalemate_message(self):
-        expected_computer_move_message = "Computer is thinking...\n"
+        expected_computer_move_message = "Computer is thinking...\n\n"
         self.presenter.computer_move_message()
         received_output = self.chosen_output.getvalue()
 
         self.assertEqual(received_output, expected_computer_move_message)
 
     def test_presenting_available_moves(self):
-        expected_available_moves_message = "Available moves: [1, 2, 3]\n"
+        expected_available_moves_message = "Available moves: [1, 2, 3]\n\n\n"
         self.presenter.available_moves_message([1, 2, 3])
         received_output = self.chosen_output.getvalue()
 

@@ -8,3 +8,4 @@ class BoardPrinter(object):
         io.present("     " + ("   |   ").join(stringified_board[3:6]))
         io.present("    -------------------")
         io.present("     " + ("   |   ").join(stringified_board[6:9]))
+        io.present("\n")
