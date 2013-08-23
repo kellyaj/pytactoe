@@ -6,9 +6,6 @@ class Board(object):
     def place_move(self, mark, spot):
         self.spots[spot - 1] = mark
 
-    def is_spot_taken(self, spot):
-        return isinstance(self.spots[spot - 1], str)
-
     def is_spot_available(self, spot):
         return spot in self.available_spots()
 
