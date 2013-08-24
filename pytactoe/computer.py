@@ -1,5 +1,6 @@
 from player import Player
 from scorer import Scorer
+from random import choice
 
 class Computer(Player):
 
@@ -7,6 +8,8 @@ class Computer(Player):
         super(Computer, self).__init__(mark)
 
     def get_move(self, presenter, board):
+        if self.is_first_move(board):
+            return choice(self.optimal_spots())
         presenter.computer_move_message()
         self.current_player = self.mark
         chosen_move = self.minimax(board, self.current_player, 1)[1]
@@ -40,3 +43,9 @@ class Computer(Player):
                 prime_move = spot
                 highest_score = spot_score
         return [highest_score, prime_move]
+
+    def is_first_move(self, board):
+        return len(board.available_spots()) == 9
+
+    def optimal_spots(self):
+        return [1, 3, 5, 7, 9]
