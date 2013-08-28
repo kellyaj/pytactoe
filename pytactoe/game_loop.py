@@ -16,7 +16,7 @@ class GameLoop(object):
 
     def run(self, game):
         self.presenter.welcome_message()
-        while game.is_over() == False:
+        while not game.is_over():
             BoardPrinter.print_board(self.io, game.board.spots)
             game.place_move(game.get_player_move())
             if game.is_over():
