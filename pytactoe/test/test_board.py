@@ -45,6 +45,24 @@ class RowRetrievalTests(unittest.TestCase):
     def setUp(self):
         self.board = Board()
 
+    def test_getting_all_horizontal_rows(self):
+        expected_rows = [
+                          [1, 2, 3], [4, 5, 6], [7, 8, 9]
+                        ]
+        self.assertEqual(expected_rows, self.board.horizontal_rows())
+
+    def test_getting_all_vertical_rows(self):
+        expected_rows = [
+                          [1, 4, 7], [2, 5, 8], [3, 6, 9]
+                        ]
+        self.assertEqual(expected_rows, self.board.vertical_rows())
+
+    def test_getting_all_diagonal_rows(self):
+        expected_rows = [
+                          [1, 5, 9], [3, 5, 7]
+                        ]
+        self.assertEqual(expected_rows, self.board.diagonal_rows())
+
     def test_getting_all_rows_columns_and_diagonals(self):
         expected_rows = [
                           [1, 2, 3], [4, 5, 6], [7, 8, 9],
