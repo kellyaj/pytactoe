@@ -13,16 +13,8 @@ class Scorer(object):
               return False
 
     @staticmethod
-    def convert_int_or_zero(item):
-        try:
-            return int(item)
-        except ValueError:
-            return 0
-
-    @staticmethod
     def is_game_stalemate(board):
-        board_as_string = map(lambda x: Scorer.convert_int_or_zero(x), board.spots)
-        return sum(board_as_string) == 0
+        return len(board.available_spots()) == 0
 
     @staticmethod
     def is_game_over(board):

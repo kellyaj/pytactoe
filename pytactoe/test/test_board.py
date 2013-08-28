@@ -24,15 +24,6 @@ class BoardTests(unittest.TestCase):
 
         self.assertEqual(available_spots, self.board.available_spots())
 
-    def test_getting_all_rows_columns_and_diagonals(self):
-        expected_rows = [
-                          [1, 2, 3], [4, 5, 6], [7, 8, 9],
-                          [1, 4, 7], [2, 5, 8], [3, 6, 9],
-                          [1, 5, 9], [3, 5, 7]
-                        ]
-
-        self.assertEqual(expected_rows, self.board.get_all_rows())
-
 class BoardMovementTests(unittest.TestCase):
 
     def setUp(self):
@@ -48,3 +39,17 @@ class BoardMovementTests(unittest.TestCase):
 
         self.assertTrue(self.board.is_spot_available(1))
         self.assertFalse(self.board.is_spot_available(5))
+
+class RowRetrievalTests(unittest.TestCase):
+
+    def setUp(self):
+        self.board = Board()
+
+    def test_getting_all_rows_columns_and_diagonals(self):
+        expected_rows = [
+                          [1, 2, 3], [4, 5, 6], [7, 8, 9],
+                          [1, 4, 7], [2, 5, 8], [3, 6, 9],
+                          [1, 5, 9], [3, 5, 7]
+                        ]
+
+        self.assertEqual(expected_rows, self.board.get_all_rows())

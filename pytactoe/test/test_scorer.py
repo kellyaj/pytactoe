@@ -47,12 +47,3 @@ class GameOverTests(unittest.TestCase):
     def test_game_is_over_for_a_won_board(self):
         self.board.spots = ["X", "X", "X", "O", "O", 6, 7, 8, 9]
         self.assertTrue(Scorer.is_game_over(self.board))
-
-class ScorerTests(unittest.TestCase):
-
-    def test_handling_valueerror_for_player_marks(self):
-        my_int = 4
-        my_string = "four"
-
-        self.assertEqual(4, Scorer.convert_int_or_zero(my_int))
-        self.assertEqual(0, Scorer.convert_int_or_zero(my_string))
