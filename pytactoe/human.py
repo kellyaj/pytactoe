@@ -1,9 +1,7 @@
-from player import Player
-
-class Human(Player):
+class Human(object):
 
     def __init__(self, mark, io):
-        super(Human, self).__init__(mark)
+        self.mark = mark
         self.io = io
 
     def get_move(self, presenter, board):

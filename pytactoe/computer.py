@@ -1,11 +1,10 @@
-from player import Player
 from scorer import Scorer
 from random import choice
 
-class Computer(Player):
+class Computer(object):
 
     def __init__(self, mark):
-        super(Computer, self).__init__(mark)
+        self.mark = mark
 
     def get_move(self, presenter, board):
         if self.is_first_move(board):
