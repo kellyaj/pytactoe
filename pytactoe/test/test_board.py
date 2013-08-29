@@ -40,7 +40,7 @@ class BoardMovementTests(unittest.TestCase):
         self.assertTrue(self.board.is_spot_available(1))
         self.assertFalse(self.board.is_spot_available(5))
 
-class RowRetrievalTests(unittest.TestCase):
+class BoardRowRetrievalTests(unittest.TestCase):
 
     def setUp(self):
         self.board = Board()

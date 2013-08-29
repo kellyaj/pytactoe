@@ -11,8 +11,8 @@ class Board(object):
 
     def available_spots(self):
         available_spots = []
-        for idx, val in enumerate(self.spots):
-            if isinstance(val, int):
+        for idx, spot in enumerate(self.spots):
+            if isinstance(spot, int):
                 available_spots.append(idx + 1)
         return available_spots
 
