@@ -4,23 +4,54 @@ A typical Tic Tac Toe game written in [Python](http://www.python.org/).
 
 Dependencies
 ========
-[Python 2.x](http://www.python.org/).
+The game itself only depends on [Python 2.x](http://www.python.org/).
+
+The tests rely on [pytest](http://pytest.org/latest/).
 
 Installation
 ========
-If you're using OSX, Python 2.x is likely already installed. To verify that your system has Python installed, use:
 
-```
-python --version
-```
+### Recommended Installation:
 
-If you do not have Python installed, you can install it using [Homebrew](http://brew.sh/):
+I highly recommend installing Python using [Homebrew](http://brew.sh/):
 
 ```
 brew install python
 ```
 
-One advantage is that Homebrew will also install [pip](https://pypi.python.org/pypi/pip), a popular Python package manager. Note that a fresh brew install of python will take several minutes and is entirely optional. You will be able to play the game and run the tests as long as you have Python installed.
+Note that a fresh Homebrew installation of Python may take several minutes. Homebrew will also install pip, a popular Python package manager.
+
+The tests are run using pytest. After the Homebrew installation completes, install pytest using:
+
+```
+pip install -U pytest
+```
+
+That's it! You're ready to go.
+
+### Unrecommended Installation:
+You likely can use the version of Python that comes pre-installed with your system (not recommended) or [install Python manually](http://www.python.org/download/) (also not recommended)
+
+You will need a Python package manager to install pytest. I recommend [installing pip](http://www.pip-installer.org/en/latest/installing.html).
+
+```
+pip install -U pytest
+```
+
+If you're using pip, you're done!
+
+If you're not using pip, you'll have to use [easy_install](http://pythonhosted.org/distribute/easy_install.html). This will require an additional step.
+
+```
+easy_install -U pytest
+```
+
+Followed by:
+
+```
+easy_install -U mock
+```
+If you're using easy_install, you're done!
 
 Playing
 ========
@@ -32,16 +63,8 @@ python play.py
 
 Testing
 ========
-You can run the tests using pytest. It's easy to [install py.test](http://pytest.org/latest/getting-started.html) yourself. I recommend using [pip](https://pypi.python.org/pypi/pip), which Homebrew will automatically install. Assuming you have pip, use the following command:
+Assuming everything was installed properly, you can simply use the following command to run the tests:
 
 ```
-pip install -U pytest
+py.test -v
 ```
-
-If you've installed py.test yourself, you can simply use the following command to run the tests:
-
-```
-py.test
-```
-
-The tests are written using [PyUnit](http://docs.python.org/2/library/unittest.html).
