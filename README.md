@@ -6,7 +6,7 @@ Dependencies
 ========
 The game itself only depends on [Python 2.x](http://www.python.org/).
 
-The tests rely on [pytest](http://pytest.org/latest/).
+The tests rely on [pytest](http://pytest.org/latest/) and [mock](http://www.voidspace.org.uk/python/mock/).
 
 Installation
 ========
@@ -27,6 +27,12 @@ The tests are run using pytest. After the Homebrew installation completes, insta
 pip install -U pytest
 ```
 
+Finally, you'll need to install mock:
+
+```
+pip install -U mock
+```
+
 That's it! You're ready to go.
 
 ### Unrecommended Installation:
@@ -36,6 +42,12 @@ You will need a Python package manager to install pytest. I recommend [installin
 
 ```
 pip install -U pytest
+```
+
+Followed by:
+
+```
+pip install -U mock
 ```
 
 If you're using pip, you're done!
