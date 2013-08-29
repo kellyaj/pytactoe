@@ -1,8 +1,10 @@
 import unittest
 from mock import MagicMock
-from pytactoe.game_loop import GameLoop
-from pytactoe.io import InputOutput
 from cStringIO import StringIO
+from pytactoe.game_loop import GameLoop
+from pytactoe.human import Human
+from pytactoe.computer import Computer
+from pytactoe.io import InputOutput
 
 class GameLoopTests(unittest.TestCase):
 
@@ -17,6 +19,13 @@ class GameLoopTests(unittest.TestCase):
 
         self.assertEqual(self.player1, game_loop.game.player1)
         self.assertEqual(self.player2, game_loop.game.player2)
+
+    def test_game_is_created_with_proper_player_types(self):
+        io = InputOutput(StringIO("human\ncomputer"), StringIO())
+        game_loop = GameLoop(io)
+
+        self.assertTrue(isinstance(game_loop.game.player1, Human))
+        self.assertTrue(isinstance(game_loop.game.player2, Computer))
 
     def test_evaluting_yes_response_to_play_again_prompt(self):
         io = InputOutput(StringIO("c\nc\nyes\n"), StringIO())
