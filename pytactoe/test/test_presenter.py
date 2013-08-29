@@ -18,7 +18,7 @@ class PresenterTests(unittest.TestCase):
         self.assertEqual(received_output, expected_welcome)
 
     def test_presenting_the_winner_message(self):
-        expected_winner_message = "O has won the game!\n"
+        expected_winner_message = "O has won the game!\n\n"
         self.presenter.winner_message("O")
         received_output = self.chosen_output.getvalue()
 
@@ -32,13 +32,13 @@ class PresenterTests(unittest.TestCase):
         self.assertEqual(received_output, expected_invalid_move_message)
 
     def test_presenting_stalemate_message(self):
-        expected_stalemate_message = "The game ended in a stalemate\n"
+        expected_stalemate_message = "The game ended in a stalemate\n\n"
         self.presenter.stalemate_message()
         received_output = self.chosen_output.getvalue()
 
         self.assertEqual(received_output, expected_stalemate_message)
 
-    def test_presenting_stalemate_message(self):
+    def test_presenting_computer_thinking_message(self):
         expected_computer_move_message = "Computer is thinking...\n\n"
         self.presenter.computer_move_message()
         received_output = self.chosen_output.getvalue()
@@ -64,7 +64,7 @@ class PresenterTests(unittest.TestCase):
 
         self.assertEqual(received_output, expected_prompt)
 
-    def test_presenting_the_player_type_prompt(self):
+    def test_presenting_the_play_again_prompt(self):
         expected_prompt = "Would you like to play again? type 'yes' or 'no'\n"
         self.presenter.play_again_prompt()
         received_output = self.chosen_output.getvalue()

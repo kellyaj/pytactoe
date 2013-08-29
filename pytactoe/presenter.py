@@ -19,13 +19,13 @@ class Presenter(object):
         self.io.present("Available moves: %s\n\n" % available_moves)
 
     def winner_message(self, mark):
-        self.io.present("%s has won the game!" % mark)
+        self.io.present("%s has won the game!\n" % mark)
 
     def invalid_move_message(self):
         self.io.present("Invalid move. Please try again")
 
     def stalemate_message(self):
-        self.io.present("The game ended in a stalemate")
+        self.io.present("The game ended in a stalemate\n")
 
     def computer_move_message(self):
         self.io.present("Computer is thinking...\n")
