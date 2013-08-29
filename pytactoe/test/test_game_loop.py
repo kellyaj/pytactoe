@@ -18,8 +18,14 @@ class GameLoopTests(unittest.TestCase):
         self.assertEqual(self.player1, game_loop.game.player1)
         self.assertEqual(self.player2, game_loop.game.player2)
 
-    def test_evaluting_play_again_prompt(self):
+    def test_evaluting_yes_response_to_play_again_prompt(self):
         io = InputOutput(StringIO("c\nc\nyes\n"), StringIO())
         game_loop = GameLoop(io)
         game_loop.create_game(self.player1, self.player2)
         self.assertTrue(game_loop.play_again())
+
+    def test_evaluting_no_response_to_play_again_prompt(self):
+        io = InputOutput(StringIO("c\nc\nno\n"), StringIO())
+        game_loop = GameLoop(io)
+        game_loop.create_game(self.player1, self.player2)
+        self.assertFalse(game_loop.play_again())
