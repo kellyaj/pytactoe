@@ -32,7 +32,7 @@ class Computer(object):
         highest_score = -1
         depth = depth
         if Scorer.is_game_over(board):
-            return [self.score_move(board, current_player, depth), None]
+            return (self.score_move(board, current_player, depth), None)
         depth += 1
         for spot in board.available_spots():
             board.place_move(current_player, spot)
@@ -41,7 +41,7 @@ class Computer(object):
             if spot_score > highest_score:
                 prime_move = spot
                 highest_score = spot_score
-        return [highest_score, prime_move]
+        return (highest_score, prime_move)
 
     def is_first_move(self, board):
         return len(board.available_spots()) == 9
