@@ -1,6 +1,6 @@
 import unittest
-from pytactoe.io import InputOutput
 from cStringIO import StringIO
+from pytactoe.io import InputOutput
 
 class InputOutputTests(unittest.TestCase):
 
