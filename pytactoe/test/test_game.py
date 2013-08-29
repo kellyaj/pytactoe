@@ -16,27 +16,6 @@ class GameTests(unittest.TestCase):
 
         self.assertEqual(spots, game.board.spots)
 
-class GameValidations(unittest.TestCase):
-
-    def setUp(self):
-        spots = ["X", 2, "O", 4, 5, 6, 7, 8, 9]
-        self.game = Game(None, None, None, spots)
-
-    def test_validating_player_move(self):
-        taken_spot = 1
-        invalid_move = "banana"
-        valid_move = 2
-
-        self.assertFalse(self.game.is_move_valid(None))
-        self.assertFalse(self.game.is_move_valid(taken_spot))
-        self.assertFalse(self.game.is_move_valid(invalid_move))
-        self.assertTrue(self.game.is_move_valid(valid_move))
-
-    def test_sanitizing_user_input(self):
-        self.assertEqual(0, self.game.sanitize_user_input(None))
-        self.assertEqual(0, self.game.sanitize_user_input(''))
-        self.assertEqual(4, self.game.sanitize_user_input('4'))
-
 class GamePlayersTests(unittest.TestCase):
 
     def setUp(self):
